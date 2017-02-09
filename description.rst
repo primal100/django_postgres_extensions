@@ -1,0 +1,5 @@
+Django Postgres Extensions!
+
+Django Postgres Extensions adds a lot of functionality to Django.contrib.postgres, specifically in relation to ArrayField, HStoreField and JSONField, including much better form fields for dealing with these field types. The app also includes an Array Many To Many Field, so you can store the relationship in an array column instead of requiring an extra database table.
+
+Check out http://django-postgres-extensions.readthedocs.io/en/latest/ to get started.

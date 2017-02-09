@@ -1,0 +1,7 @@
+*.pyc
+*.log
+.idea/*
+build/*
+dist/*
+docs/_*
+django_postgres_extensions.egg-info/*
