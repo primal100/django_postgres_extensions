@@ -8,7 +8,9 @@ To run the tests
 
 ``$ git clone https://github.com/primal100/django_postgres_extensions.git dpe_repo``
 
-``$ cd dpe-repo/tests``
+``$ cd dpe_repo/tests``
+
+Configure the postgresql connection details in test_postgres.py.
 
 ``$ ./runtests.py --exclude-tag=benchmark``
 

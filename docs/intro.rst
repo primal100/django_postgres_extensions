@@ -3,7 +3,7 @@ Getting started
 
 .. warning::
 
-    Although it generally should work on other versions, Django Postgres Extensions has been tested with Python 3.6 and Django 1.10.5.
+    Although it generally should work on other versions, Django Postgres Extensions has been tested with Python 2.7.12, Python 3.6 and Django 1.10.5.
 
 Installation
 -------------
