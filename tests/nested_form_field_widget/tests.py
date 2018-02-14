@@ -34,13 +34,13 @@ class NestedFormWidgetTest(TestCase):
              ),
             attrs={'id': 'bar'},
         )
-        self.check_html(widget, 'name', ['john', 'winston', 'lennon'], html="""<ul>
+        self.check_html(widget, 'name', ['john', 'winston', 'lennon'], attrs={'id': 'bar'}, html="""<ul>
             <li><label for="bar_a">A:</label><input id="bar_a" name="name_a" type="text" value="john" /></li>
             <li><label for="bar_b">B:</label><input id="bar_b" name="name_b" type="text" value="winston" /></li>
             <li><label for="bar_c">C:</label><input id="bar_c" name="name_c" type="text" value="lennon" /></li>
             </ul>
         """
-                        )
+        )
 
     def test_needs_multipart_true(self):
         """

@@ -5,3 +5,5 @@ build/*
 dist/*
 docs/_*
 django_postgres_extensions.egg-info/*
+*.env
+todo.txt

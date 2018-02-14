@@ -1,5 +1,5 @@
-from django.db.models.sql.compiler import SQLCompiler, SQLInsertCompiler, SQLUpdateCompiler as BaseUpdateCompiler, \
-    SQLAggregateCompiler, SQLDeleteCompiler
+from django.db.models.sql.compiler import (SQLCompiler, SQLInsertCompiler, SQLUpdateCompiler as BaseUpdateCompiler,
+    SQLAggregateCompiler, SQLDeleteCompiler)
 from django.core.exceptions import FieldError
 
 def no_quote_name(name):
@@ -14,7 +14,7 @@ class SQLUpdateCompiler(BaseUpdateCompiler):
         self.pre_sql_setup()
         if not self.query.values:
             return '', ()
-        table = self.query.tables[0]
+        table = self.query.base_table
         qn = self.quote_name_unless_alias
         result = ['UPDATE %s' % qn(table)]
         result.append('SET')

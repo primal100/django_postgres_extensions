@@ -40,7 +40,6 @@ class Article(models.Model):
 class AbstractArticle(models.Model):
     class Meta:
         abstract = True
-        ordering = ('title',)
 
     publications = ArrayManyToManyField(Publication, name='publications', related_name='+')
 

@@ -116,7 +116,7 @@ def create_array_many_to_many_manager(superclass, rel, reverse, IsJson):
             queryset = queryset.filter(**query)
             queryset.is_multi_reference = True
 
-            return queryset, self.validate_rel_obj, self.get_instance_attr, False, self.prefetch_cache_name
+            return queryset, self.validate_rel_obj, self.get_instance_attr, False, self.prefetch_cache_name, True
 
         def _update_instance(self, **kwargs):
             qs = self.related_model.objects.filter(pk=self.instance.pk)

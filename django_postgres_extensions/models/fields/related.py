@@ -287,13 +287,13 @@ class ArrayManyToManyField(ArrayField, RelatedField):
         """
         return None
 
-    def get_path_info(self):
+    def get_path_info(self, filtered_relation=None):
         """
         Get path from this field to the related model.
         """
         opts = self.remote_field.model._meta
         from_opts = self.model._meta
-        return [PathInfo(from_opts, opts, self.foreign_related_fields, self, False, True)]
+        return [PathInfo(from_opts, opts, self.foreign_related_fields, self, False, True, filtered_relation)]
 
     def validate_item(self, obj, model=None):
         if not model:
@@ -322,13 +322,13 @@ class ArrayManyToManyField(ArrayField, RelatedField):
             objs = [self.validate_item(obj) for obj in data]
             setattr(instance, self.attname, objs)
 
-    def get_reverse_path_info(self):
+    def get_reverse_path_info(self, filtered_relation):
         """
         Get path from the related model to this field's model.
         """
         opts = self.model._meta
         from_opts = self.remote_field.model._meta
-        pathinfos = [PathInfo(from_opts, opts, (from_opts.pk,), self.remote_field, not self.unique, False)]
+        pathinfos = [PathInfo(from_opts, opts, (from_opts.pk,), self.remote_field, not self.unique, False, filtered_relation)]
         return pathinfos
 
     def get_lookup(self, lookup_name):

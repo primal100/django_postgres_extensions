@@ -5,6 +5,8 @@ Django Postgres Extensions adds a lot of functionality to Django.contrib.postgre
 
 Check out http://django-postgres-extensions.readthedocs.io/en/latest/ to get started.
 
+Latest release (0.9.3) tested with Django 2.0.2
+
 Feature Overview
 ================
 Custom Postgres backend

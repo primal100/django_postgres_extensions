@@ -1,0 +1,6 @@
+<ul>{% for widget in widgets %}
+    <li>
+        <label{% if widget.label_for %} for="{{ widget.label_for }}"{% endif %}>{{widget.label}}:</label>
+    {{ widget.html }}
+    </li>
+{% endfor %}</ul>

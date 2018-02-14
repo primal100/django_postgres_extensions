@@ -1,5 +1,5 @@
 from django.db.models.expressions import F as BaseF, Value as BaseValue, Func, Expression
-from django.db.utils import six
+from django.utils import six
 from django.contrib.postgres.fields.array import IndexTransform
 from django.utils.functional import cached_property
 from django.db.models.lookups import Transform
@@ -39,9 +39,9 @@ class F(BaseF, OperatorMixin):
 
 class Value(BaseValue, OperatorMixin):
     def as_sql(self, compiler, connection):
-        if self._output_field and any(self._output_field.get_internal_type() == fieldname for fieldname in
+        if self._output_field_or_none and any(self._output_field_or_none.get_internal_type() == fieldname for fieldname in
                                       ['ArrayField', 'MultiReferenceArrayField']):
-            base_field = self._output_field.base_field
+            base_field = self._output_field_or_none.base_field
             return '%s::%s[]' % ('%s', base_field.db_type(connection)), [self.value]
         return super(Value, self).as_sql(compiler, connection)
 

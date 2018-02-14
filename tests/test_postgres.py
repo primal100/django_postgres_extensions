@@ -12,12 +12,15 @@
 # database backends as possible.  You may want to create a separate settings
 # file for each of the backends you test against.
 
+import os
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django_postgres_extensions.backends.postgresql',
-        'NAME': 'db',
-        'USER': 'paul',
-        'PASSWORD': None,
+        'NAME': os.environ.get('POSTGRES_DBNAME', 'db'),
+        'USER': os.environ.get('POSTGRES_USER'),
+        'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'PORT': 5432,
     }
 }

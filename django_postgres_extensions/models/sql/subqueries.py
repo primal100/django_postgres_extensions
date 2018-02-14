@@ -1,5 +1,5 @@
 from django.db.models.sql.subqueries import UpdateQuery as BaseUpdateQuery
-from django.db.utils import six
+from django.utils import six
 from django.core.exceptions import FieldError
 
 class UpdateQuery(BaseUpdateQuery):

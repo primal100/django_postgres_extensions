@@ -1,4 +1,4 @@
-from django.contrib.postgres.signals import register_hstore_handler
+from django.contrib.postgres.signals import register_type_handlers
 from django.db.backends.postgresql.creation import DatabaseCreation as BaseDatabaseCreation
 from django.conf import settings
 
@@ -37,7 +37,7 @@ class DatabaseCreation(BaseDatabaseCreation):
         with self.connection.cursor() as cursor:
             for extension in ('hstore',):
                 cursor.execute("CREATE EXTENSION IF NOT EXISTS %s" % extension)
-        register_hstore_handler(self.connection)
+            register_type_handlers(self.connection)
 
         # We report migrate messages at one level lower than that requested.
         # This ensures we don't get flooded with messages during testing
